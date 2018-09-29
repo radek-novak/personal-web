@@ -1,13 +1,19 @@
 #! /bin/bash
 
-git add .
-git ci -m "autocommit $(date "+%Y-%m-%d %H:%M:%S")"
-git push origin master
+# either take message from a param or use a date
+COMMIT_MSG=${1-"autocommit $(date "+%Y-%m-%d %H:%M:%S")"}
 
-hugo
+echo "Committing with message: $COMMIT_MSG"
 
-cd public
+# git add .
+# git ci -m " $COMMIT_MSG"
+# git push origin master
 
-git add --all
-git ci -m "autocommit $(date "+%Y-%m-%d %H:%M:%S")"
-git push origin master
+# # builds the website into public/
+# hugo
+
+# cd public
+
+# git add --all
+# git ci -m "$COMMIT_MSG"
+# git push origin master
