@@ -5,15 +5,14 @@ COMMIT_MSG=${1-"autocommit $(date "+%Y-%m-%d %H:%M:%S")"}
 
 echo "Committing with message: $COMMIT_MSG"
 
-# git add .
-# git ci -m " $COMMIT_MSG"
-# git push origin master
+git add .
+git ci -m " $COMMIT_MSG"
+git push origin master
 
-# # builds the website into public/
-# hugo
+# builds the website into public/
+hugo
 
-# cd public
-
-# git add --all
-# git ci -m "$COMMIT_MSG"
-# git push origin master
+cd public
+git add --all
+git ci -m "$COMMIT_MSG"
+git push origin master
