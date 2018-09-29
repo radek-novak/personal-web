@@ -2,7 +2,7 @@
 
   {{ partial "cardFilters.html" . }}
 
-  {{ range .Site.Data.links }}
+  {{ range .Site.Data.cards }}
     {{ partial "card.html" . }}
   {{end }}
 {{ end }}
