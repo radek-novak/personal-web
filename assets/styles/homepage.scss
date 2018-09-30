@@ -21,9 +21,9 @@
 a {
   text-decoration: none;
   text-transform: uppercase;
-}
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .u-center {
@@ -49,7 +49,6 @@ a:hover {
   left: -2px;
 }
 
-
 body {
   background-image: url("/images/bg-stripes.png");
   padding: 0 1rem;
@@ -74,8 +73,11 @@ h1 {
   position: relative;
   display: inline-block;
   width: 200px;
-}
 
+  img {
+    max-width: 100%;
+  }
+}
 .card input[type="checkbox"] {
   display: none;
 }
@@ -142,6 +144,4 @@ h1 {
   top: 0;
   left: 0;
 }
-.card img {
-  max-width: 100%;
-}
+
