@@ -33,13 +33,13 @@
   link: "/stuff/caleido/"
   text: Drawing
   date: 2015-02
-  img: "/images/caleido.png"
+  img: "/images/caleido-600.jpg"
   tags:
   - visual
 - title: Circles
   link: "/stuff/circles/"
   text: Repetitive circle structures
-  img: "/images/circles.png"
+  img: "/images/circles.jpg"
   date: 2014-06
   tags:
   - visual
@@ -47,7 +47,7 @@
 - title: Mazal
   link: "/stuff/mazal/"
   text: Drawing
-  img: "/images/mazal.png"
+  img: "/images/mazal.jpg"
   date: 2014-07
   tags:
   - visual
@@ -55,7 +55,7 @@
 - title: One pixel cinema
   link: "/stuff/one_pixel_cinema/"
   text: Drawing
-  img: "/images/one-pixel-cinema.png"
+  img: "/images/one-pixel-cinema.jpg"
   date: 2014-06
   tags:
   - visual
@@ -63,7 +63,7 @@
 - title: Unknown Pleasures Cover
   link: "http://codepen.io/RDKNVK/full/pJgPyp/"
   text: Joy Division's Unknown Pleasures cover recreated in d3 and animated
-  img: "/images/unknown-pleasures.png"
+  img: "/images/unknown-pleasures.jpg"
   date: 2016-03
   tags:
   - visual
@@ -71,7 +71,7 @@
 - title: Spinning squares
   link: "http://codepen.io/RDKNVK/full/hKADc/"
   text: css3 animation
-  img: "/images/spinning_squares.png"
+  img: "/images/spinning_squares.jpg"
   date: 2014-03
   tags:
   - visual
@@ -79,7 +79,7 @@
 - title: Snakes
   link: "http://codepen.io/RDKNVK/full/mFryH/"
   text: css3 animation
-  img: "/images/snakes.png"
+  img: "/images/snakes.jpg"
   date: 2014-02
   tags:
   - visual
