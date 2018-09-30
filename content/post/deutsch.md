@@ -1,4 +1,14 @@
+---
+title: "German"
+date: 2018-09-30T21:14:47+02:00
+draft: true
+---
+
+<a href="https://www.apronus.com/learngerman/learngerman.htm">apronus.com - learngerman</a>
+
 # Adjectives
+<a href="https://germangrinds.com/2011/06/14/the-slightly-easier-way-to-learn-german-adjective-endings/">from here</a>
+<a href="https://www.apronus.com/learngerman/adj.htm">apronus.com - adj</a>
 
 <table border="0" cellpadding="6">
   <tbody>
