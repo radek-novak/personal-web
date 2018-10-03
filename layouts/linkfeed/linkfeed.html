@@ -1,6 +1,6 @@
 {{ define "head"}}
-{{ $style := resources.Get "styles/linkfeed.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+  {{ $style := resources.Get "styles/linkfeed.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
 {{ end }}
 
 {{ define "main" }}
