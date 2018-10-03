@@ -1,0 +1,12 @@
+{{ define "head"}}
+{{ $style := resources.Get "styles/linkfeed.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
+
+{{ define "main" }}
+  {{ range .Site.Data.linkfeed.links }}
+    {{ partial "link.html" . }}
+  {{end }}
+
+  <script src="/js/linkfeed.js"></script>
+{{ end }}
