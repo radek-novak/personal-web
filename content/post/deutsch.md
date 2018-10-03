@@ -1,7 +1,7 @@
 ---
 title: "German"
 date: 2018-09-30T21:14:47+02:00
-draft: true
+draft: false
 ---
 
 <a href="https://www.apronus.com/learngerman/learngerman.htm">apronus.com - learngerman</a>
