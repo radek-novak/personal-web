@@ -109,3 +109,12 @@
   - visual
   - react
   - interactive
+- title: Spheres
+  link: "/stuff/spheres"
+  text: ''
+  img: "/images/spheres.jpg"
+  date: 2019-02
+  tags:
+  - visual
+  - p5
+  - 3D
