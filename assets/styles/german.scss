@@ -1,0 +1,62 @@
+@mixin artikel-content($selector) {
+  .#{$selector}:before {
+    content: $selector;
+  }
+}
+
+$lum: 40%;
+
+.adj-wrap {
+  display: flex;
+
+  table {
+    margin-bottom: 2em;
+  }
+  
+  td {
+    color: white;
+    text-align: center;
+  }
+}
+
+
+@include artikel-content("der");
+@include artikel-content("die");
+@include artikel-content("das");
+@include artikel-content("den");
+@include artikel-content("des");
+@include artikel-content("dem");
+@include artikel-content("-er");
+@include artikel-content("-e");
+@include artikel-content("-en");
+@include artikel-content("-es");
+@include artikel-content("-em");
+
+.der,
+.-er {
+  background-color: hsl(180, 100%, $lum);
+}
+
+.die,
+.-e {
+  background-color: hsl(0, 100%, $lum);
+}
+
+.das {
+  background-color: hsl(120, 100%, $lum);
+}
+
+.den,
+.-en {
+  background-color: hsl(60, 100%, $lum);
+}
+
+.dem,
+.-em {
+  background-color: hsl(240, 100%, $lum);
+}
+
+.des,
+.-es {
+  background-color: hsl(300, 100%, $lum);
+}

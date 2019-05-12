@@ -1,0 +1,8 @@
+{{ define "head"}}
+{{ $style := resources.Get "styles/german.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ end }}
+
+{{ define "main" }}
+
+{{ end }}

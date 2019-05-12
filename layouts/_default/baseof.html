@@ -1,11 +1,12 @@
 {{ $resetStyle := resources.Get "styles/reset.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-
+{{ $deutschStyle := resources.Get "styles/german.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Radek Novák</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{{ $resetStyle.Permalink }}">
+<link rel="stylesheet" href="{{ $resetStyle.RelPermalink }}">
+<link rel="stylesheet" href="{{ $deutschStyle.RelPermalink }}">
 
 {{ block "head" . }}{{ end }}
 {{ block "main" . }}{{ end }}
