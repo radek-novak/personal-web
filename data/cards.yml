@@ -7,6 +7,13 @@
   tags:
     - app
     - tool
+- title: reaction time
+  link: "/stuff/dep"
+  text: Reaction time demonstrates startle effect when unexpectedly large circle appears
+  img: "/images/reaction-time.min.jpg"
+  date: "2019-06"
+  tags:
+    - cognition
 - title: Six Walls
   link: "https://radek-novak.github.io/six-walls"
   text: A simple 3D game made in Babylon.js
@@ -29,7 +36,6 @@
   date: "2014-03-01"
   tags:
     - visual
-    - CSS3
 - title: Silk Drawing
   link: stuff/Silk-draw
   text: ""
@@ -83,7 +89,6 @@
   date: 2014-03
   tags:
     - visual
-    - CSS3
 - title: Snakes
   link: "http://codepen.io/RDKNVK/full/mFryH/"
   text: css3 animation
@@ -91,7 +96,6 @@
   date: 2014-02
   tags:
     - visual
-    - CSS3
 - title: Lightning
   link: stuff/lightning
   text: ""
@@ -115,7 +119,6 @@
   date: 2017-05
   tags:
     - visual
-    - react
     - interactive
 - title: Spheres
   link: "/stuff/spheres"
