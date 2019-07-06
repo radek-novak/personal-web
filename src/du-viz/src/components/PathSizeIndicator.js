@@ -1,9 +1,9 @@
 import { pathToStr } from "../utils/helpers";
 import filesize from "filesize";
 
-const PathSizeIndicator = ({ path, size }) =>
+const pathSize = ({ path, size }) =>
   `${pathToStr(path)} - ${filesize(size || 0, {
     base: 10
   })}`;
 
-export default PathSizeIndicator;
+export default pathSize;

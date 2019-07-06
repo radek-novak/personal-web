@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
-import PathSizeIndicator from "../components/PathSizeIndicator";
+import pathSize from "../components/PathSizeIndicator";
 import Viz from "../components/Viz";
-import getFolderSizes from "../utils/filesizes/getFolderSizes";
+import { order, folderSizes } from "../utils/filesizes/getFolderSizes";
 import dir2tree from "../utils/filesizes/dir2tree";
-import { pathToStr } from "../utils/helpers";
-
-type Props = {};
+import testdata from "../example";
 
 // { a: { b: 1, c: 2, d: {dd: 22}}}, ['a, 'd'] => {d: {dd: 22}}
-const lensView = (obj, lensPath) => {
+const lensView = (obj: Tree, lensPath: string[]) => {
   let current = JSON.parse(JSON.stringify(obj));
   const lastKey = lensPath[lensPath.length - 1];
   const keyPath = lensPath.slice(0, -1);
@@ -24,8 +22,15 @@ const lensView = (obj, lensPath) => {
   return current;
 };
 
-export default class HomePage extends Component<Props> {
-  props: Props;
+type Tree = { [key: string]: Tree } | {};
+type Path = string[];
+type Size = any;
+type HandleEvent = {
+  path: Path;
+  size?: Size;
+};
+
+export default class HomePage extends Component {
   state = {
     currentPath: ["Users", "rdkn"],
     viewing: { path: null, size: 0 },
@@ -34,20 +39,22 @@ export default class HomePage extends Component<Props> {
   };
 
   componentDidMount() {
-    this.fetch();
+    this.fetch(testdata);
   }
 
-  fetch = (depth = 3) => {
-    getFolderSizes(pathToStr(this.state.currentPath), depth).then(data => {
-      const treeData = dir2tree(data);
-      this.setState({
-        currentTreeData: lensView(treeData, this.state.currentPath),
-        loading: false
-      });
+  fetch = (duOutput: string = testdata) => {
+    console.time();
+    const _folderSizes = order(folderSizes(duOutput));
+
+    const treeData = dir2tree(_folderSizes);
+    console.timeEnd();
+    this.setState({
+      currentTreeData: lensView(treeData, this.state.currentPath),
+      loading: false
     });
   };
 
-  handleHover = ({ size, path }) => {
+  handleHover = ({ size, path }: HandleEvent) => {
     this.setState({
       viewing: {
         size,
@@ -56,7 +63,7 @@ export default class HomePage extends Component<Props> {
     });
   };
 
-  handleClick = ({ path, size }) => {
+  handleClick = ({ path, size }: HandleEvent) => {
     const currentPath = [...this.state.currentPath.slice(0, -1), ...path];
     this.setState(
       {
@@ -67,7 +74,7 @@ export default class HomePage extends Component<Props> {
     );
   };
 
-  breadClick = path => {
+  breadClick = (path: Path) => {
     this.setState(
       {
         currentPath: path,
@@ -110,7 +117,7 @@ export default class HomePage extends Component<Props> {
           onClick={this.handleClick}
         />
         <div className="BottomBar">
-          <PathSizeIndicator path={combinedPath} size={size} />
+          {pathSize({ path: combinedPath, size })}
         </div>
       </>
     );

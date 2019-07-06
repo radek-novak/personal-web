@@ -1,11 +1,9 @@
-// @flow
-
 const getSlashesCount = str =>
-  str.split('').reduce((acc, curr) => (curr === '/' ? acc + 1 : acc), 0);
+  str.split("").reduce((acc, curr) => (curr === "/" ? acc + 1 : acc), 0);
 
 const assignIn = (obj, path, size) => {
   const curPathSect = path[0];
-  const [_head, ...tail] = path;
+  const [, ...tail] = path;
 
   if (curPathSect in obj) {
     obj[curPathSect].children = obj[curPathSect].children || {};
@@ -40,14 +38,15 @@ const dir2tree = inputArg => {
 
   let level = 1;
   while (input.length) {
+    // eslint-disable-next-line
     const current = input.filter(([path]) => getSlashesCount(path) === level);
 
     for (let cur of current) {
       const [path, size] = cur;
-      const pathArr = path.split('/').filter(Boolean);
+      const pathArr = path.split("/").filter(Boolean);
       assignIn(result, pathArr, size);
     }
-
+    // eslint-disable-next-line
     input = input.filter(([path]) => getSlashesCount(path) !== level);
     level++;
   }

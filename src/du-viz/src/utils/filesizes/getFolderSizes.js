@@ -1,14 +1,14 @@
-const { execFile } = require('child_process');
+const { execFile } = require("child_process");
 
 // default blocksize on macos
 const BLOCKSIZE = 512;
 
 function folderSizes(duOutput) {
   const re = /^(\d+?)\t(.+?)$/;
-  const lines = duOutput.trim().split('\n');
+  const lines = duOutput.trim().split("\n");
   const map = {};
   for (let line of lines) {
-    const [_, foldersize, folderpath] = line.match(re);
+    const [, foldersize, folderpath] = line.match(re);
     map[folderpath] = Number(foldersize) * BLOCKSIZE;
   }
   return map;
@@ -19,8 +19,8 @@ const order = map => Object.entries(map).sort((a, b) => b[1] - a[1]);
 const _getFolderSizes = (path, depth) =>
   new Promise((resolve, reject) => {
     execFile(
-      'du',
-      ['-d', depth.toString(), path],
+      "du",
+      ["-d", depth.toString(), path],
       { env: { BLOCKSIZE } }, // ensure default blocksize
       (error, stdout, stderr) => {
         if (error) {
@@ -29,7 +29,7 @@ const _getFolderSizes = (path, depth) =>
         }
 
         if (stderr) {
-          console.error('stderr', stderr);
+          console.error("stderr", stderr);
         }
 
         resolve(order(folderSizes(stdout)));
@@ -50,4 +50,4 @@ const getFolderSizes = (path, depth, useCache = true) => {
   }
 };
 
-export default getFolderSizes;
+export { order, folderSizes, getFolderSizes };
