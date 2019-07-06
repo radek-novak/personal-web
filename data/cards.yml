@@ -8,7 +8,7 @@
     - app
     - tool
 - title: reaction time
-  link: "/stuff/dep"
+  link: "/stuff/reaction-time"
   text: Reaction time demonstrates startle effect when unexpectedly large circle appears
   img: "/images/reaction-time.min.jpg"
   date: "2019-06"
