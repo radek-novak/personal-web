@@ -4,7 +4,7 @@ import pathSize from "../components/PathSizeIndicator";
 import Viz from "../components/Viz";
 import { order, folderSizes } from "../utils/filesizes/getFolderSizes";
 import dir2tree from "../utils/filesizes/dir2tree";
-import testdata from "../example";
+import { testdata2 } from "../example";
 
 // { a: { b: 1, c: 2, d: {dd: 22}}}, ['a, 'd'] => {d: {dd: 22}}
 const lensView = (obj: Tree, lensPath: string[]) => {
@@ -35,21 +35,27 @@ export default class HomePage extends Component {
     currentPath: ["Users", "rdkn"],
     viewing: { path: null, size: 0 },
     currentTreeData: null,
-    loading: true
+    treeData: null,
+    loading: true,
+    textareaInput: null
   };
 
   componentDidMount() {
-    this.fetch(testdata);
+    this.fetch(testdata2);
   }
 
-  fetch = (duOutput: string = testdata) => {
+  fetch = (duOutput: string) => {
     console.time();
     const _folderSizes = order(folderSizes(duOutput));
 
     const treeData = dir2tree(_folderSizes);
     console.timeEnd();
+    const currentPath = _folderSizes[1][0].split("/").filter(Boolean);
+    console.log("fetch currentpath", currentPath);
     this.setState({
-      currentTreeData: lensView(treeData, this.state.currentPath),
+      currentPath,
+      treeData,
+      currentTreeData: lensView(treeData, currentPath),
       loading: false
     });
   };
@@ -64,24 +70,37 @@ export default class HomePage extends Component {
   };
 
   handleClick = ({ path, size }: HandleEvent) => {
+    const { treeData } = this.state;
+    if (!treeData) return;
+
     const currentPath = [...this.state.currentPath.slice(0, -1), ...path];
-    this.setState(
-      {
-        currentPath,
-        loading: true
-      },
-      this.fetch
-    );
+    this.setState({
+      currentPath,
+      currentTreeData: lensView(treeData || {}, currentPath)
+    });
   };
 
   breadClick = (path: Path) => {
-    this.setState(
-      {
-        currentPath: path,
-        loading: true
-      },
-      this.fetch
-    );
+    console.log("breadclick", path);
+    const { treeData } = this.state;
+    if (!treeData) return;
+    const currentPath = [...this.state.currentPath.slice(0, -1), ...path];
+
+    this.setState({
+      currentPath,
+      currentTreeData: lensView(treeData || {}, currentPath)
+    });
+  };
+
+  onSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    this.fetch(this.state.textareaInput || "");
+  };
+
+  handleInput = (e: any) => {
+    this.setState({
+      textareaInput: e.target.value
+    });
   };
 
   render() {
@@ -92,33 +111,46 @@ export default class HomePage extends Component {
       currentPath
     } = this.state;
 
-    if (loading && !currentTreeData) {
-      return "Loading...";
-    }
+    // if (loading && !currentTreeData) {
+    //   return "Loading...";
+    // }
 
     const combinedPath = currentPath.slice(0, -1).concat(path || []);
-
+    console.log(combinedPath);
     return (
       <>
-        <div className="TopBar">
-          {loading ? (
-            "Loading..."
-          ) : (
-            <Breadcrumbs
-              combinedPath={combinedPath}
-              path={currentPath}
-              onClick={this.breadClick}
+        {currentTreeData ? (
+          <>
+            <div className="TopBar">
+              {loading ? (
+                "Loading..."
+              ) : (
+                <Breadcrumbs
+                  combinedPath={combinedPath}
+                  path={currentPath}
+                  onClick={this.breadClick}
+                />
+              )}
+            </div>
+            <Viz
+              data={currentTreeData}
+              onHover={this.handleHover}
+              onClick={this.handleClick}
             />
-          )}
-        </div>
-        <Viz
-          data={currentTreeData}
-          onHover={this.handleHover}
-          onClick={this.handleClick}
-        />
-        <div className="BottomBar">
-          {pathSize({ path: combinedPath, size })}
-        </div>
+            <div className="BottomBar">
+              {pathSize({ path: combinedPath, size })}
+            </div>
+          </>
+        ) : (
+          <form onSubmit={this.onSubmit}>
+            <textarea
+              name="data"
+              placeholder="Paste the output of `du` here"
+              onChange={this.handleInput}
+            />
+            <button type="submit">Visualize</button>
+          </form>
+        )}
       </>
     );
   }
