@@ -1,8 +1,3 @@
-:root {
-  --main-bg-color: gray;
-  --text-color: white;
-}
-
 body {
   position: relative;
   color: white;
@@ -15,7 +10,7 @@ body {
     rgba(0, 1, 127, 0.7)
   );
   overflow-y: hidden;
-
+  font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -40,10 +35,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-p {
-  font-size: 24px;
+small {
+  font-size: 0.6rem;
 }
-
 li {
   list-style: none;
 }
@@ -88,30 +82,39 @@ a:hover {
 .u-noPointerEv {
   pointer-events: none;
 }
-
-.BottomBar {
-  position: absolute;
-  margin: 0.5rem;
-  bottom: 20px;
+.u-inline {
+  display: inline;
 }
+
 .TopBar {
   position: absolute;
   padding: 0.5rem;
   width: 100%;
 }
-
-.TopRightNav {
+.BottomBar {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  margin: 0.5rem;
+  bottom: 20px;
+}
+.BottomBar,
+.TopBar {
+  text-shadow: #1e608d 0px 0px 10px;
 }
 
-.SettingsPage {
-  position: relative;
+.inputScreen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.SettingsPage__container {
-  margin: 0 auto;
-  max-width: 90vw;
-  text-align: center;
-  padding-top: 1px;
+.inputScreen [type="submit"] {
+  display: block;
+  width: 100%;
+  -webkit-appearance: unset;
+  height: 2rem;
+}
+.inputScreen code pre {
+  background: #350f05;
+  padding: 4px;
 }

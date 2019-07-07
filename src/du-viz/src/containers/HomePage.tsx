@@ -21,7 +21,7 @@ const lensView = (obj: Tree, lensPath: string[]) => {
   return current;
 };
 
-type Tree = { [key: string]: Tree } | {};
+type Tree = { [key: string]: Tree };
 type Path = string[];
 type Size = any;
 type HandleEvent = {
@@ -31,7 +31,7 @@ type HandleEvent = {
 
 export default class HomePage extends Component {
   state = {
-    currentPath: ["Users", "rdkn"],
+    currentPath: [],
     viewing: { path: null, size: 0 },
     currentTreeData: null,
     treeData: null,
@@ -43,7 +43,7 @@ export default class HomePage extends Component {
     console.time();
     const _folderSizes = order(folderSizes(duOutput));
 
-    const treeData = dir2tree(_folderSizes);
+    const treeData = dir2tree(_folderSizes) as Tree;
     console.timeEnd();
     const currentPath = _folderSizes[1][0].split("/").filter(Boolean);
 
@@ -109,7 +109,7 @@ export default class HomePage extends Component {
     return (
       <>
         {currentTreeData ? (
-          <>
+          <div className="layout">
             <div className="TopBar">
               {loading ? (
                 "Loading..."
@@ -129,16 +129,30 @@ export default class HomePage extends Component {
             <div className="BottomBar">
               {pathSize({ path: combinedPath, size })}
             </div>
-          </>
+          </div>
         ) : (
-          <form onSubmit={this.onSubmit}>
-            <textarea
-              name="data"
-              placeholder="Paste the output of `du` here"
-              onChange={this.handleInput}
-            />
-            <button type="submit">Visualize</button>
-          </form>
+          <div className="inputScreen">
+            <p>
+              Run <pre className="u-inline">du</pre> command
+              <small>
+                <i>(expecting block size 512)</i>
+              </small>
+              <code>
+                <pre>du -d 3 | pbcopy</pre>
+              </code>
+              and paste the output in the textarea
+            </p>
+            <form onSubmit={this.onSubmit}>
+              <textarea
+                name="data"
+                rows={20}
+                cols={20}
+                placeholder="Paste the output of `du` here"
+                onChange={this.handleInput}
+              />
+              <button type="submit">Visualize</button>
+            </form>
+          </div>
         )}
       </>
     );
