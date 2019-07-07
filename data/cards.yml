@@ -7,6 +7,15 @@
   tags:
     - app
     - tool
+- title: du viz
+  link: "/stuff/du-viz"
+  text: Interactive sunburst graph of the storage space generated out of the output of the du command
+  img: "/images/du-viz.min.jpg"
+  date: "2019-07"
+  tags:
+    - app
+    - tool
+    - visual
 - title: reaction time
   link: "/stuff/reaction-time"
   text: Reaction time demonstrates startle effect when unexpectedly large circle appears
