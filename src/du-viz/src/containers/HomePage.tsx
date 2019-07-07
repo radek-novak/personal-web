@@ -4,7 +4,6 @@ import pathSize from "../components/PathSizeIndicator";
 import Viz from "../components/Viz";
 import { order, folderSizes } from "../utils/filesizes/getFolderSizes";
 import dir2tree from "../utils/filesizes/dir2tree";
-import { testdata2 } from "../example";
 
 // { a: { b: 1, c: 2, d: {dd: 22}}}, ['a, 'd'] => {d: {dd: 22}}
 const lensView = (obj: Tree, lensPath: string[]) => {
@@ -40,18 +39,14 @@ export default class HomePage extends Component {
     textareaInput: null
   };
 
-  componentDidMount() {
-    this.fetch(testdata2);
-  }
-
-  fetch = (duOutput: string) => {
+  load = (duOutput: string) => {
     console.time();
     const _folderSizes = order(folderSizes(duOutput));
 
     const treeData = dir2tree(_folderSizes);
     console.timeEnd();
     const currentPath = _folderSizes[1][0].split("/").filter(Boolean);
-    console.log("fetch currentpath", currentPath);
+
     this.setState({
       currentPath,
       treeData,
@@ -81,20 +76,18 @@ export default class HomePage extends Component {
   };
 
   breadClick = (path: Path) => {
-    console.log("breadclick", path);
     const { treeData } = this.state;
     if (!treeData) return;
-    const currentPath = [...this.state.currentPath.slice(0, -1), ...path];
 
     this.setState({
-      currentPath,
-      currentTreeData: lensView(treeData || {}, currentPath)
+      currentPath: path,
+      currentTreeData: lensView(treeData || {}, path)
     });
   };
 
   onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    this.fetch(this.state.textareaInput || "");
+    this.load(this.state.textareaInput || "");
   };
 
   handleInput = (e: any) => {
@@ -111,12 +104,8 @@ export default class HomePage extends Component {
       currentPath
     } = this.state;
 
-    // if (loading && !currentTreeData) {
-    //   return "Loading...";
-    // }
-
     const combinedPath = currentPath.slice(0, -1).concat(path || []);
-    console.log(combinedPath);
+
     return (
       <>
         {currentTreeData ? (

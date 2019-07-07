@@ -2,7 +2,7 @@
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
-@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "~@fortawesome/fontawesome-free/css/all.css";
 
 :root {
   --main-bg-color: gray;
@@ -19,95 +19,97 @@ body {
     45deg,
     rgba(0, 216, 255, 0.5) 10%,
     rgba(0, 1, 127, 0.7)
-    );
-    font-family: -apple-system, Helvetica Neue, Helvetica, Arial, serif;
-    overflow-y: hidden;
-  }
+  );
+  font-family: -apple-system, Helvetica Neue, Helvetica, Arial, serif;
+  overflow-y: hidden;
+}
 
-  *, *:before, *:after {
-    box-sizing: border-box;
-  }
-  
-  h2 {
-    margin: 0;
-    font-size: 2.25rem;
-    font-weight: bold;
-    letter-spacing: -0.025em;
-    color: #fff;
-  }
-  
-  p {
-    font-size: 24px;
-  }
-  
-  li {
-    list-style: none;
-  }
-  
-  a {
-    color: white;
-    opacity: 0.75;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    opacity: 1;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .Bread__btn {
-    border: 0;
-    background: transparent;
-    color: var(--text-color);
-    padding: 0.7rem 0;
-    font-size: 1rem;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
-  .Bread__btn:active {
-    outline: 0;
-  }
+h2 {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: bold;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
 
-  .Bread__btn:hover ~ .Bread__btn {
-    opacity: 0.5;
-  }
+p {
+  font-size: 24px;
+}
 
-  .Segment__path {
-    stroke-width: 0.5;
-    stroke: rgb(25, 77, 46);
-    fill: rgb(143, 153, 102);
-  }
-  .Segment__path:hover {
-    fill: rgb(153, 113, 102);
-  }
+li {
+  list-style: none;
+}
 
-  .u-noPointerEv {
-    pointer-events: none;
-  }
+a {
+  color: white;
+  opacity: 0.75;
+  text-decoration: none;
+}
 
-  .BottomBar {
-    position: absolute;
-    margin: 0.5rem;
-    bottom: 20px;
-  }
-  .TopBar {
-    position: absolute;
-    padding: 0.5rem;
-    width: 100%;
-  }
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-  .TopRightNav {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-  }
+.Bread__btn {
+  border: 0;
+  background: transparent;
+  color: var(--text-color);
+  padding: 0.7rem 0;
+  font-size: 1rem;
+}
 
-  .SettingsPage {
-    position: relative;
-  }
-  .SettingsPage__container {
-    margin: 0 auto;
-    max-width: 90vw;
-    text-align: center;
-    padding-top: 1px;
-  }
+.Bread__btn:active {
+  outline: 0;
+}
+
+.Bread__btn:hover ~ .Bread__btn {
+  opacity: 0.5;
+}
+
+.Segment__path {
+  stroke-width: 0.5;
+  stroke: rgb(25, 77, 46);
+  fill: rgb(143, 153, 102);
+}
+.Segment__path:hover {
+  fill: rgb(153, 113, 102);
+}
+
+.u-noPointerEv {
+  pointer-events: none;
+}
+
+.BottomBar {
+  position: absolute;
+  margin: 0.5rem;
+  bottom: 20px;
+}
+.TopBar {
+  position: absolute;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.TopRightNav {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.SettingsPage {
+  position: relative;
+}
+.SettingsPage__container {
+  margin: 0 auto;
+  max-width: 90vw;
+  text-align: center;
+  padding-top: 1px;
+}
