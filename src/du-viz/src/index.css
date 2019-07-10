@@ -114,7 +114,14 @@ a:hover {
   -webkit-appearance: unset;
   height: 2rem;
 }
+.inputScreen form {
+  margin: 1rem;
+}
+.inputScreen .loading {
+  font-size: 3rem;
+  font-weight: 200;
+}
 .inputScreen code pre {
   background: #350f05;
-  padding: 4px;
+  padding: 4px 1em;
 }

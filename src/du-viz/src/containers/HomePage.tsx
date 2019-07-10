@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import pathSize from "../components/PathSizeIndicator";
 import Viz from "../components/Viz";
+import InputScreen from "../components/InputScreen";
 import { order, folderSizes } from "../utils/filesizes/getFolderSizes";
 import dir2tree from "../utils/filesizes/dir2tree";
 
@@ -85,17 +86,6 @@ export default class HomePage extends Component {
     });
   };
 
-  onSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    this.load(this.state.textareaInput || "");
-  };
-
-  handleInput = (e: any) => {
-    this.setState({
-      textareaInput: e.target.value
-    });
-  };
-
   render() {
     const {
       viewing: { path, size },
@@ -131,28 +121,7 @@ export default class HomePage extends Component {
             </div>
           </div>
         ) : (
-          <div className="inputScreen">
-            <p>
-              Run <pre className="u-inline">du</pre> command
-              <small>
-                <i>(expecting block size 512)</i>
-              </small>
-              <code>
-                <pre>du -d 3 | pbcopy</pre>
-              </code>
-              and paste the output in the textarea
-            </p>
-            <form onSubmit={this.onSubmit}>
-              <textarea
-                name="data"
-                rows={20}
-                cols={20}
-                placeholder="Paste the output of `du` here"
-                onChange={this.handleInput}
-              />
-              <button type="submit">Visualize</button>
-            </form>
-          </div>
+          <InputScreen onSubmit={this.load} />
         )}
       </>
     );
