@@ -210,4 +210,4 @@ draft: false
 - [Learn German at Apronus.com](https://www.apronus.com/learngerman/learngerman.htm)
 - [The (slightly) easier way to learn German adjective endings](https://germangrinds.com/2011/06/14/the-slightly-easier-way-to-learn-german-adjective-endings/)
 - [German Adjective Endings](https://www.apronus.com/learngerman/adj.htm)
-- [Lingolia Gramatik](https://deutsch.lingolia.com/de/grammatik)
+- [Lingolia Grammatik](https://deutsch.lingolia.com/de/grammatik)
