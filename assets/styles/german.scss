@@ -6,19 +6,60 @@
 
 $lum: 40%;
 
+body {
+  padding: 1rem;
+}
+section {
+  margin-bottom: 2em;
+}
+h1,
+h2 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+a {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
 .adj-wrap {
+  position: relative;
   display: flex;
+  overflow: auto;
+  max-width: calc(100vw - 2rem);
 
   table {
     margin-bottom: 2em;
   }
-  
+}
+
+.table {
+  th {
+    padding: 0 0.2em;
+  }
   td {
     color: white;
     text-align: center;
   }
 }
 
+.table--grey {
+  td {
+    background: grey;
+    padding: 0 0.5em;
+  }
+}
+.postatic {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  tr:not(:first-child) th {
+    background: white;
+    text-align: right;
+  }
+}
 
 @include artikel-content("der");
 @include artikel-content("die");
