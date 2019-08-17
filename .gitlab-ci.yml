@@ -1,7 +1,9 @@
 image: alpine
-
-before_script:
-  - apk add hugo
+stages:
+  - build
+  - deploy
+# before_script:
+#   - apk add hugo
 
 # run-build:
 #   script:
@@ -12,8 +14,10 @@ before_script:
 # Full project: https://gitlab.com/pages/hugo
 # image: dettmering/hugo-build
 
-pages:
+compile:
+  stage: build
   script:
+    - apk add hugo
     - hugo
     - "ls -l public"
   artifacts:
@@ -28,7 +32,8 @@ pages:
 #   except:
 #     - master
 
-deploy:
+copy-to-bucket:
+  stage: deploy
   image: python:latest
   script:
     - pip install awscli
