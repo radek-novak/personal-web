@@ -32,6 +32,7 @@ const textPath = center => (angFrom, angTo, distFar) => {
     `;
 };
 
+const LIMIT = 4;
 const renderChildren = ({
   from,
   to,
@@ -57,20 +58,21 @@ const renderChildren = ({
     if (typeof relSize !== "number" || isNaN(relSize)) continue;
     const newPath = path.concat(key);
 
-    ret.push(
-      <Segment
-        key={newPath.join("/")}
-        from={lastAngle}
-        to={lastAngle + relSize}
-        path={newPath}
-        size={size}
-        level={level + 1}
-        center={center}
-        onHover={onHover}
-        onClick={onClick}
-        segmentChildren={children}
-      />
-    );
+    level <= LIMIT &&
+      ret.push(
+        <Segment
+          key={newPath.join("/")}
+          from={lastAngle}
+          to={lastAngle + relSize}
+          path={newPath}
+          size={size}
+          level={level + 1}
+          center={center}
+          onHover={onHover}
+          onClick={onClick}
+          segmentChildren={children}
+        />
+      );
     lastAngle += relSize;
   }
 
