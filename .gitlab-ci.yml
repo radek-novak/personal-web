@@ -22,8 +22,14 @@ pages:
   only:
     - master
 
-test:
+# test:
+#   script:
+#     - hugo
+#   except:
+#     - master
+
+deploy:
+  image: python:latest
   script:
-    - hugo
-  except:
-    - master
+    - pip install awscli
+    - aws s3 cp ./public s3://rdkn.eu/ --recursive --include "*"
