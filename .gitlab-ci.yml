@@ -1,0 +1,9 @@
+image: alpine
+
+before_script:
+  - apk add hugo
+
+run-build:
+  script:
+    - hugo
+    - ll public/
