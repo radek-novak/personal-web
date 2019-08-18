@@ -26,12 +26,15 @@ a {
 .adj-wrap {
   position: relative;
   display: flex;
-  overflow: auto;
-  max-width: calc(100vw - 2rem);
 
   table {
     margin-bottom: 2em;
   }
+}
+
+.scrollable-x {
+  overflow: auto;
+  max-width: calc(100vw - 2rem);
 }
 
 .table {

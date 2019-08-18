@@ -47,7 +47,7 @@ draft: false
 <section>
   <h2>Artikel: Adjektiven</h2>
 
-  <div class="adj-wrap table">
+  <div class="adj-wrap scrollable-x table">
     <table class="postatic">
       <caption>&nbsp;</caption>
       <tr>
@@ -163,46 +163,48 @@ draft: false
 
 <section>
   <h2>Pronomen</h2>
-  <table class="table table--grey">
-    <tbody>
-      <tr>
-        <th align="right">Nominativ</th>
-        <td>ich</td>
-        <td>du</td>
-        <td>er</td>
-        <td>sie</td>
-        <td>es</td>
-        <td>wir</td>
-        <td>ihr</td>
-        <td>sie</td>
-        <td>Sie</td>
-      </tr>
-      <tr>
-        <th align="right">Dativ</th>
-        <td>mir</td>
-        <td>dir</td>
-        <td>ihm</td>
-        <td>ihr</td>
-        <td>ihm</td>
-        <td>uns</td>
-        <td>euch</td>
-        <td>ihnen</td>
-        <td>Ihnen</td>
-      </tr>
-      <tr>
-        <th align="right">Akkusativ</th>
-        <td>mich</td>
-        <td>dich</td>
-        <td>ihn</td>
-        <td>sie</td>
-        <td>es</td>
-        <td>uns</td>
-        <td>euch</td>
-        <td>sie</td>
-        <td>Sie</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="scrollable-x">
+    <table class="table table--grey">
+      <tbody>
+        <tr>
+          <th align="right">Nominativ</th>
+          <td>ich</td>
+          <td>du</td>
+          <td>er</td>
+          <td>sie</td>
+          <td>es</td>
+          <td>wir</td>
+          <td>ihr</td>
+          <td>sie</td>
+          <td>Sie</td>
+        </tr>
+        <tr>
+          <th align="right">Dativ</th>
+          <td>mir</td>
+          <td>dir</td>
+          <td>ihm</td>
+          <td>ihr</td>
+          <td>ihm</td>
+          <td>uns</td>
+          <td>euch</td>
+          <td>ihnen</td>
+          <td>Ihnen</td>
+        </tr>
+        <tr>
+          <th align="right">Akkusativ</th>
+          <td>mich</td>
+          <td>dich</td>
+          <td>ihn</td>
+          <td>sie</td>
+          <td>es</td>
+          <td>uns</td>
+          <td>euch</td>
+          <td>sie</td>
+          <td>Sie</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 **sources:**
@@ -211,3 +213,5 @@ draft: false
 - [The (slightly) easier way to learn German adjective endings](https://germangrinds.com/2011/06/14/the-slightly-easier-way-to-learn-german-adjective-endings/)
 - [German Adjective Endings](https://www.apronus.com/learngerman/adj.htm)
 - [Lingolia Grammatik](https://deutsch.lingolia.com/de/grammatik)
+- [Themen B1](http://longua.org/b1.tips.php)
+- [Goethe Prüfung B2](http://longua.org/b2.tips.goethe.php)
