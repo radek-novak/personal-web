@@ -1,18 +1,8 @@
 image: alpine
+
 stages:
   - build
   - deploy
-# before_script:
-#   - apk add hugo
-
-# run-build:
-#   script:
-#     - hugo
-#     - ll public/
-
-# This file is a template, and might need editing before it works on your project.
-# Full project: https://gitlab.com/pages/hugo
-# image: dettmering/hugo-build
 
 compile:
   stage: build
@@ -25,12 +15,6 @@ compile:
       - public
   only:
     - master
-
-# test:
-#   script:
-#     - hugo
-#   except:
-#     - master
 
 copy-to-bucket:
   stage: deploy
