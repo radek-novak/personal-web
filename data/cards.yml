@@ -1,4 +1,11 @@
 ---
+- title: fefempeg
+  link: "/tool/fefempeg"
+  text: A UI to build a commands for ffmpeg
+  img: "/images/fefempeg.jpg"
+  date: "2020-01"
+  tags:
+    - tool
 - title: dep
   link: "/stuff/dep"
   text: Dependency graph visualisation with topological sorting
