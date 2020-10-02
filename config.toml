@@ -1,3 +1,6 @@
-baseURL = "https://radeknovak.net"
+baseURL = "https://rdkn.eu"
 languageCode = "en-us"
 title = "."
+
+[markup.goldmark.renderer]
+unsafe= true
